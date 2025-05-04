@@ -74,17 +74,16 @@ async def blacklist(ctx, username: str):
     with open("blacklist.json", "w") as f:
         json.dump(blacklist, f)
     await ctx.send(f"{username} has been blacklisted.")
-
+    
 @bot.command()
 async def check(ctx):
     if ctx.author.id != ADMIN_ID:
         await ctx.send("You do not have permission to check the whitelist.")
         return
-    await ctx.send("Whitelisted users:")
-
-" + "
-".join(whitelist))
+    # Assuming 'whitelist' is defined globally or imported
+    await ctx.send("Whitelisted users:\n" + "\n".join(whitelist))
 
 import os
 TOKEN = os.getenv("DISCORD_TOKEN")
 bot.run(TOKEN)
+
