@@ -80,7 +80,8 @@ async def check(ctx):
     if ctx.author.id != ADMIN_ID:
         await ctx.send("You do not have permission to check the whitelist.")
         return
-    await ctx.send("Whitelisted users:
+    await ctx.send("Whitelisted users:")
+
 " + "
 ".join(whitelist))
 
